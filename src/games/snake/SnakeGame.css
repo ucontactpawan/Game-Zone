@@ -1,0 +1,135 @@
+.snake-game {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 1rem;
+  position: relative;
+}
+
+.snake-game__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+}
+
+.snake-game__back-btn {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.snake-game__back-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.snake-game__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.snake-game__board-wrap {
+  position: relative;
+}
+
+/* Start / Pause overlay */
+.snake-game__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+}
+
+.snake-game__overlay-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.snake-game__overlay-score {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.snake-game__overlay-score strong {
+  color: var(--accent-primary);
+  font-size: 1.4rem;
+}
+
+.snake-game__overlay-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.snake-game__btn {
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.snake-game__btn--primary {
+  background: linear-gradient(
+    135deg,
+    var(--accent-primary),
+    var(--accent-secondary)
+  );
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.snake-game__btn--primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.snake-game__btn--secondary {
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.snake-game__btn--secondary:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.snake-game__controls {
+  margin-top: 0.5rem;
+}
+
+/* Hide D-pad on desktop, show on mobile */
+@media (min-width: 641px) {
+  .snake-game__controls {
+    display: none;
+  }
+}
+
+.snake-game__hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}

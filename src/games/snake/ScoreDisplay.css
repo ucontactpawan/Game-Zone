@@ -1,0 +1,32 @@
+.score-display {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.score-display__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.score-display__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.score-display__value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.score-display__item--high .score-display__value {
+  color: var(--accent-primary);
+}

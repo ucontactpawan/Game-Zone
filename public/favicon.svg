@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Green circle background -->
+  <circle cx="32" cy="32" r="32" fill="#22c55e"/>
+  <!-- Game controller icon in white -->
+  <rect x="14" y="22" width="36" height="22" rx="11" fill="white"/>
+  <!-- D-pad left/right -->
+  <rect x="18" y="30" width="10" height="4" rx="2" fill="#22c55e"/>
+  <!-- D-pad up/down -->
+  <rect x="21" y="27" width="4" height="10" rx="2" fill="#22c55e"/>
+  <!-- Buttons right side -->
+  <circle cx="44" cy="29" r="2.5" fill="#22c55e"/>
+  <circle cx="49" cy="33" r="2.5" fill="#22c55e"/>
+  <circle cx="44" cy="37" r="2.5" fill="#22c55e"/>
+  <circle cx="39" cy="33" r="2.5" fill="#22c55e"/>
+  <!-- Center bumps -->
+  <circle cx="32" cy="20" r="3" fill="#22c55e"/>
+  <circle cx="32" cy="20" r="1.5" fill="white"/>
+</svg>

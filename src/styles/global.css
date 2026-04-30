@@ -1,0 +1,214 @@
+/* ============================================================
+   CSS Custom Properties — Dark Theme (default)
+   ============================================================ */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary: #0f0f1a;
+  --bg-secondary: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-overlay: rgba(0, 0, 0, 0.85);
+
+  /* Text */
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Accent */
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-glow: rgba(99, 102, 241, 0.3);
+
+  /* Borders */
+  --border-color: #2d3748;
+  --border-glow: rgba(99, 102, 241, 0.5);
+
+  /* Snake game */
+  --snake-head: #6366f1;
+  --snake-body: #4f46e5;
+  --food-color: #f43f5e;
+  --grid-cell: #1e2a3a;
+
+  /* Memory card game */
+  --card-back: #1e3a5f;
+  --card-front: #6366f1;
+  --card-matched: #10b981;
+
+  /* Status */
+  --success-color: #10b981;
+  --danger-color: #f43f5e;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+/* ============================================================
+   CSS Custom Properties — Light Theme
+   ============================================================ */
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-overlay: rgba(255, 255, 255, 0.9);
+
+  /* Text */
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  /* Accent */
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-glow: rgba(99, 102, 241, 0.15);
+
+  /* Borders */
+  --border-color: #e2e8f0;
+  --border-glow: rgba(99, 102, 241, 0.3);
+
+  /* Snake game */
+  --snake-head: #6366f1;
+  --snake-body: #818cf8;
+  --food-color: #f43f5e;
+  --grid-cell: #e8edf5;
+
+  /* Memory card game */
+  --card-back: #dbeafe;
+  --card-front: #6366f1;
+  --card-matched: #10b981;
+
+  /* Status */
+  --success-color: #10b981;
+  --danger-color: #f43f5e;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.16);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+/* ============================================================
+   Design Tokens — Shared (theme-independent)
+   ============================================================ */
+:root {
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Typography */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ============================================================
+   Base Reset
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   HTML & Body
+   ============================================================ */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+/* ============================================================
+   Root Container
+   ============================================================ */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   Scrollbar Styling
+   ============================================================ */
+[data-theme="dark"] {
+  scrollbar-color: var(--border-color) var(--bg-secondary);
+}
+
+[data-theme="light"] {
+  scrollbar-color: var(--border-color) var(--bg-secondary);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ============================================================
+   Focus Styles
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Button Reset
+   ============================================================ */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 0;
+  line-height: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ============================================================
+   Media
+   ============================================================ */
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}

@@ -1,0 +1,43 @@
+.snake-board {
+  display: grid;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  /* Size is set via inline style using --cols and --rows */
+  width: min(calc(var(--cols, 20) * 22px), 90vw);
+  aspect-ratio: 1;
+}
+
+.snake-cell {
+  background: var(--grid-cell);
+  border: 1px solid transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.snake-cell--snake_head {
+  background: var(--snake-head);
+  border-radius: 3px;
+  box-shadow: 0 0 6px var(--accent-glow);
+}
+
+.snake-cell--snake_body {
+  background: var(--snake-body);
+  border-radius: 2px;
+}
+
+.snake-cell--food {
+  background: var(--food-color);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.6);
+  animation: food-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes food-pulse {
+  from {
+    transform: scale(0.85);
+  }
+  to {
+    transform: scale(1);
+  }
+}

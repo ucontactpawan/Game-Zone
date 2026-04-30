@@ -1,0 +1,51 @@
+.snake-controls {
+  display: grid;
+  grid-template-areas:
+    ". up ."
+    "left . right"
+    ". down .";
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(3, 48px);
+  gap: 4px;
+}
+
+.snake-controls__btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast),
+    transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.snake-controls__btn:hover,
+.snake-controls__btn:active {
+  background: var(--accent-primary);
+  color: #fff;
+  border-color: var(--accent-primary);
+  transform: scale(0.95);
+  box-shadow: var(--shadow-glow);
+}
+
+.snake-controls__btn--up {
+  grid-area: up;
+}
+.snake-controls__btn--left {
+  grid-area: left;
+}
+.snake-controls__btn--right {
+  grid-area: right;
+}
+.snake-controls__btn--down {
+  grid-area: down;
+}
