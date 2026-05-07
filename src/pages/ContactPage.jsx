@@ -1,17 +1,20 @@
 import { useState } from "react";
 import "./StaticPage.css";
 
+const INITIAL_FORM = {
+  name: "",
+  email: "",
+  subject: "general",
+  message: "",
+};
+
 export default function ContactPage({ onBack }) {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "general",
-    message: "",
-  });
+  const [form, setForm] = useState(INITIAL_FORM);
   const [sent, setSent] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
+    setForm(INITIAL_FORM);
     setSent(true);
   }
 

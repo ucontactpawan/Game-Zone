@@ -100,15 +100,16 @@ export function tick(state, rows, cols) {
     return { ...state, status: "game_over" };
   }
 
-  // Self collision (check against all current segments)
-  for (const segment of snake) {
+  // Food collision
+  const ateFood = newHead.row === food.row && newHead.col === food.col;
+
+  // Self collision — exclude tail if snake is moving (tail vacates its cell)
+  const segmentsToCheck = ateFood ? snake : snake.slice(0, -1);
+  for (const segment of segmentsToCheck) {
     if (segment.row === newHead.row && segment.col === newHead.col) {
       return { ...state, status: "game_over" };
     }
   }
-
-  // Food collision
-  const ateFood = newHead.row === food.row && newHead.col === food.col;
 
   let newSnake, newFood, newScore, newTickMs;
 

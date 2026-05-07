@@ -1,43 +1,89 @@
 .snake-board {
   display: grid;
-  border: 2px solid var(--border-color);
-  border-radius: var(--radius-md);
+  border: 3px solid var(--border-color);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 0 0 1px var(--border-color),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 40px var(--accent-glow);
+  gap: 1px;
+  background: var(--border-color);
+  padding: 2px;
   /* Size is set via inline style using --cols and --rows */
-  width: min(calc(var(--cols, 20) * 22px), 90vw);
+  width: min(calc(var(--cols, 20) * 26px), 92vw);
   aspect-ratio: 1;
 }
 
 .snake-cell {
   background: var(--grid-cell);
-  border: 1px solid transparent;
-  transition: background-color var(--transition-fast);
+  transition: background-color 120ms ease;
+  position: relative;
 }
 
+/* ── Snake Head ── */
 .snake-cell--snake_head {
   background: var(--snake-head);
-  border-radius: 3px;
-  box-shadow: 0 0 6px var(--accent-glow);
+  border-radius: 5px;
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.2),
+    0 0 12px var(--snake-head);
+  z-index: 2;
 }
 
+.snake-cell--snake_head::after {
+  content: "";
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.1) 60%
+  );
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+/* ── Snake Body ── */
 .snake-cell--snake_body {
   background: var(--snake-body);
-  border-radius: 2px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
 }
 
+/* ── Food ── */
 .snake-cell--food {
-  background: var(--food-color);
+  background: transparent;
+  z-index: 2;
+}
+
+.snake-cell--food::after {
+  content: "";
+  position: absolute;
+  inset: 15%;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(244, 63, 94, 0.6);
-  animation: food-pulse 1s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 30% 30%, #ff6b8a, var(--food-color));
+  box-shadow:
+    0 0 10px rgba(244, 63, 94, 0.7),
+    0 0 20px rgba(244, 63, 94, 0.4),
+    0 0 30px rgba(244, 63, 94, 0.2);
+  animation: food-pulse 0.8s ease-in-out infinite alternate;
 }
 
 @keyframes food-pulse {
   from {
-    transform: scale(0.85);
+    transform: scale(0.8);
+    box-shadow:
+      0 0 8px rgba(244, 63, 94, 0.6),
+      0 0 16px rgba(244, 63, 94, 0.3),
+      0 0 24px rgba(244, 63, 94, 0.15);
   }
   to {
     transform: scale(1);
+    box-shadow:
+      0 0 14px rgba(244, 63, 94, 0.9),
+      0 0 28px rgba(244, 63, 94, 0.5),
+      0 0 42px rgba(244, 63, 94, 0.25);
   }
 }
