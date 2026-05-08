@@ -48,8 +48,10 @@ const GAMES = [
     description:
       "Slide tiles and combine numbers to reach the legendary 2048 tile.",
     icon: "🔢",
+    tag: "New",
+    tagColor: "green",
     category: "puzzle",
-    comingSoon: true,
+    comingSoon: false,
     players: "1 Player",
     difficulty: "Medium",
   },

@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import SnakePage from "./pages/SnakePage";
 import MemoryCardPage from "./pages/MemoryCardPage";
+import Twenty48Page from "./pages/Twenty48Page";
 import AboutPage from "./pages/AboutPage";
 import BlogPage from "./pages/BlogPage";
 import CareersPage from "./pages/CareersPage";
@@ -25,9 +26,6 @@ const FOOTER_VIEWS = new Set([
   "privacy",
   "terms",
 ]);
-
-/* Views that are "game" views (no footer, back goes home) */
-const GAME_VIEWS = new Set(["snake", "memory"]);
 
 function App() {
   const [view, setView] = useState("home");
@@ -54,6 +52,7 @@ function App() {
         {view === "memory" && (
           <MemoryCardPage onBack={() => navigate("home")} />
         )}
+        {view === "2048" && <Twenty48Page onBack={() => navigate("home")} />}
         {view === "about" && (
           <AboutPage onBack={() => navigate("home")} onSelectGame={navigate} />
         )}

@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: "Games", id: "home" },
   { label: "Snake", id: "snake" },
   { label: "Memory", id: "memory" },
+  { label: "2048", id: "2048" },
   { label: "About", id: "about" },
 ];
 
